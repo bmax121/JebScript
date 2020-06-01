@@ -6,8 +6,7 @@ from com.pnfsoftware.jeb.core.units.code.java import IJavaSourceUnit
 FMT = """{js_wrap_name}
     .{method_name}
     .overload({param_list})
-    .implementation = function (this, ...args) {{ // for javascript
-    // .implementation = function (this: Java.Wrapper, ...args: any[]) {{ // for typescript
+    .implementation = function (...args) {{ // for javascript
         console.log("before hooked {method_sig}");
         let ret = this.{method_name}({args_list});
         console.log("after hooked {method_sig}");
@@ -18,8 +17,7 @@ FMT = """{js_wrap_name}
 FMT_RET_VOID = """{js_wrap_name}
     .{method_name}
     .overload({param_list})
-    .implementation = function (this, ...args) {{ // for javascript
-    // .implementation = function (this: Java.Wrapper, ...args: any[]) {{ // for typescript
+    .implementation = function (...args) {{ // for javascript
         console.log("before hooked {method_sig}");
         this.{method_name}({args_list});
         console.log("after hooked {method_sig}");
